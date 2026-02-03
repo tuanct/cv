@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+      - /app/node_modules # Use container's node_modules to avoid OS mismatch issues with node-sass
+    tty: true
+
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/usr/share/nginx/html
+    depends_on:
+      - app
