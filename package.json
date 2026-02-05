@@ -8,7 +8,7 @@
     "build": "next build",
     "lint": "next lint",
     "preview": "npx serve@latest out -l 8080",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && tsc --noEmit"
   },
   "repository": {
     "type": "git",
